@@ -4,7 +4,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <meta property="article:modified_time" content="2026-01-07T02:37:14+00:00" /><link rel="index" title="Index" href="../../genindex.html"><link rel="search" title="Search" href="../../search.html"><link rel="next" title="Key Concepts" href="key-concepts.html"><link rel="prev" title="AgentScope Java" href="../intro.html">
+    <meta property="article:modified_time" content="2026-01-14T08:42:51+00:00" /><link rel="index" title="Index" href="../../genindex.html"><link rel="search" title="Search" href="../../search.html"><link rel="next" title="Key Concepts" href="key-concepts.html"><link rel="prev" title="AgentScope Java" href="../intro.html">
         <link rel="canonical" href="https://java.agentscope.io/en/quickstart/installation.html">
         <link rel="prefetch" href="../../_static/logo.svg" as="image">
 
@@ -12,7 +12,7 @@
         <title>Installation - AgentScope Java</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=d75fae25" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=7bdb33bb" />
-    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=9c3e77be" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
@@ -458,12 +458,12 @@
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;dependency&gt;</span>
 <span class="w">    </span><span class="nt">&lt;groupId&gt;</span>io.agentscope<span class="nt">&lt;/groupId&gt;</span>
 <span class="w">    </span><span class="nt">&lt;artifactId&gt;</span>agentscope<span class="nt">&lt;/artifactId&gt;</span>
-<span class="w">    </span><span class="nt">&lt;version&gt;</span>1.0.6<span class="nt">&lt;/version&gt;</span>
+<span class="w">    </span><span class="nt">&lt;version&gt;</span>1.0.7<span class="nt">&lt;/version&gt;</span>
 <span class="nt">&lt;/dependency&gt;</span>
 </pre></div>
 </div>
 <p><strong>Gradle:</strong></p>
-<div class="highlight-gradle notranslate"><div class="highlight"><pre><span></span>implementation &#39;io.agentscope:agentscope:1.0.6&#39;
+<div class="highlight-gradle notranslate"><div class="highlight"><pre><span></span>implementation &#39;io.agentscope:agentscope:1.0.7&#39;
 </pre></div>
 </div>
 <section id="included-dependencies">
@@ -515,35 +515,39 @@
 <td><p><a class="reference external" href="https://central.sonatype.com/artifact/io.qdrant/client">Qdrant Client</a></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">io.qdrant:client</span></code></p></td>
 </tr>
-<tr class="row-odd"><td><p><strong>Dify RAG</strong></p></td>
+<tr class="row-odd"><td><p><strong>PgVector RAG</strong></p></td>
+<td><p><a class="reference external" href="https://central.sonatype.com/artifact/org.postgresql/postgresql">PostgreSQL Driver</a> + <a class="reference external" href="https://central.sonatype.com/artifact/com.pgvector/pgvector">pgvector</a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">org.postgresql:postgresql</span></code> + <code class="docutils literal notranslate"><span class="pre">com.pgvector:pgvector</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Dify RAG</strong></p></td>
 <td><p><a class="reference external" href="https://central.sonatype.com/artifact/com.squareup.okhttp3/okhttp">OkHttp</a></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">com.squareup.okhttp3:okhttp</span></code></p></td>
 </tr>
-<tr class="row-even"><td><p><strong>RAGFlow RAG</strong></p></td>
+<tr class="row-odd"><td><p><strong>RAGFlow RAG</strong></p></td>
 <td><p><a class="reference external" href="https://central.sonatype.com/artifact/com.squareup.okhttp3/okhttp">OkHttp</a></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">com.squareup.okhttp3:okhttp</span></code></p></td>
 </tr>
-<tr class="row-odd"><td><p><strong>HayStack RAG</strong></p></td>
+<tr class="row-even"><td><p><strong>HayStack RAG</strong></p></td>
 <td><p><a class="reference external" href="https://central.sonatype.com/artifact/com.squareup.okhttp3/okhttp">OkHttp</a></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">com.squareup.okhttp3:okhttp</span></code></p></td>
 </tr>
-<tr class="row-even"><td><p><strong>MySQL Session</strong></p></td>
+<tr class="row-odd"><td><p><strong>MySQL Session</strong></p></td>
 <td><p><a class="reference external" href="https://central.sonatype.com/artifact/com.mysql/mysql-connector-j">MySQL Connector</a></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">com.mysql:mysql-connector-j</span></code></p></td>
 </tr>
-<tr class="row-odd"><td><p><strong>Redis Session</strong></p></td>
+<tr class="row-even"><td><p><strong>Redis Session</strong></p></td>
 <td><p><a class="reference external" href="https://central.sonatype.com/artifact/redis.clients/jedis">Jedis</a></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">redis.clients:jedis</span></code></p></td>
 </tr>
-<tr class="row-even"><td><p><strong>PDF Processing</strong></p></td>
+<tr class="row-odd"><td><p><strong>PDF Processing</strong></p></td>
 <td><p><a class="reference external" href="https://central.sonatype.com/artifact/org.apache.pdfbox/pdfbox">Apache PDFBox</a></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">org.apache.pdfbox:pdfbox</span></code></p></td>
 </tr>
-<tr class="row-odd"><td><p><strong>Word Processing</strong></p></td>
+<tr class="row-even"><td><p><strong>Word Processing</strong></p></td>
 <td><p><a class="reference external" href="https://central.sonatype.com/artifact/org.apache.poi/poi-ooxml">Apache POI</a></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">org.apache.poi:poi-ooxml</span></code></p></td>
 </tr>
-<tr class="row-even"><td><p><strong>Nacos Registry</strong></p></td>
+<tr class="row-odd"><td><p><strong>Nacos Registry</strong></p></td>
 <td><p><a class="reference external" href="https://central.sonatype.com/artifact/com.alibaba.nacos/nacos-client">Nacos Client</a></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">com.alibaba.nacos:nacos-client</span></code></p></td>
 </tr>
@@ -637,12 +641,12 @@
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;dependency&gt;</span>
 <span class="w">    </span><span class="nt">&lt;groupId&gt;</span>io.agentscope<span class="nt">&lt;/groupId&gt;</span>
 <span class="w">    </span><span class="nt">&lt;artifactId&gt;</span>agentscope-core<span class="nt">&lt;/artifactId&gt;</span>
-<span class="w">    </span><span class="nt">&lt;version&gt;</span>1.0.6<span class="nt">&lt;/version&gt;</span>
+<span class="w">    </span><span class="nt">&lt;version&gt;</span>1.0.7<span class="nt">&lt;/version&gt;</span>
 <span class="nt">&lt;/dependency&gt;</span>
 </pre></div>
 </div>
 <p><strong>Gradle:</strong></p>
-<div class="highlight-gradle notranslate"><div class="highlight"><pre><span></span>implementation &#39;io.agentscope:agentscope-core:1.0.6&#39;
+<div class="highlight-gradle notranslate"><div class="highlight"><pre><span></span>implementation &#39;io.agentscope:agentscope-core:1.0.7&#39;
 </pre></div>
 </div>
 <section id="extension-modules">
@@ -690,7 +694,7 @@
 <td><p><code class="docutils literal notranslate"><span class="pre">io.agentscope:agentscope-extensions-rag-bailian</span></code></p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference external" href="https://central.sonatype.com/artifact/io.agentscope/agentscope-extensions-rag-simple">agentscope-extensions-rag-simple</a></p></td>
-<td><p>Qdrant RAG</p></td>
+<td><p>Simple RAG (Qdrant, Milvus, PgVector, InMemory)</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">io.agentscope:agentscope-extensions-rag-simple</span></code></p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference external" href="https://central.sonatype.com/artifact/io.agentscope/agentscope-extensions-rag-dify">agentscope-extensions-rag-dify</a></p></td>
@@ -808,7 +812,7 @@
 <span class="nt">&lt;dependency&gt;</span>
 <span class="w">    </span><span class="nt">&lt;groupId&gt;</span>io.agentscope<span class="nt">&lt;/groupId&gt;</span>
 <span class="w">    </span><span class="nt">&lt;artifactId&gt;</span>agentscope-extensions-mem0<span class="nt">&lt;/artifactId&gt;</span>
-<span class="w">    </span><span class="nt">&lt;version&gt;</span>1.0.6<span class="nt">&lt;/version&gt;</span>
+<span class="w">    </span><span class="nt">&lt;version&gt;</span>1.0.7<span class="nt">&lt;/version&gt;</span>
 <span class="nt">&lt;/dependency&gt;</span>
 </pre></div>
 </div>
@@ -822,7 +826,7 @@
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;dependency&gt;</span>
 <span class="w">    </span><span class="nt">&lt;groupId&gt;</span>io.agentscope<span class="nt">&lt;/groupId&gt;</span>
 <span class="w">    </span><span class="nt">&lt;artifactId&gt;</span>agentscope-spring-boot-starter<span class="nt">&lt;/artifactId&gt;</span>
-<span class="w">    </span><span class="nt">&lt;version&gt;</span>1.0.6<span class="nt">&lt;/version&gt;</span>
+<span class="w">    </span><span class="nt">&lt;version&gt;</span>1.0.7<span class="nt">&lt;/version&gt;</span>
 <span class="nt">&lt;/dependency&gt;</span>
 </pre></div>
 </div>
@@ -853,7 +857,7 @@
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;dependency&gt;</span>
 <span class="w">    </span><span class="nt">&lt;groupId&gt;</span>io.agentscope<span class="nt">&lt;/groupId&gt;</span>
 <span class="w">    </span><span class="nt">&lt;artifactId&gt;</span>agentscope-quarkus-extension<span class="nt">&lt;/artifactId&gt;</span>
-<span class="w">    </span><span class="nt">&lt;version&gt;</span>1.0.6<span class="nt">&lt;/version&gt;</span>
+<span class="w">    </span><span class="nt">&lt;version&gt;</span>1.0.7<span class="nt">&lt;/version&gt;</span>
 <span class="nt">&lt;/dependency&gt;</span>
 </pre></div>
 </div>
@@ -863,7 +867,7 @@
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;dependency&gt;</span>
 <span class="w">    </span><span class="nt">&lt;groupId&gt;</span>io.agentscope<span class="nt">&lt;/groupId&gt;</span>
 <span class="w">    </span><span class="nt">&lt;artifactId&gt;</span>agentscope-micronaut-extension<span class="nt">&lt;/artifactId&gt;</span>
-<span class="w">    </span><span class="nt">&lt;version&gt;</span>1.0.6<span class="nt">&lt;/version&gt;</span>
+<span class="w">    </span><span class="nt">&lt;version&gt;</span>1.0.7<span class="nt">&lt;/version&gt;</span>
 <span class="nt">&lt;/dependency&gt;</span>
 </pre></div>
 </div>
@@ -924,7 +928,7 @@
             Made with 
             <a href="https://github.com/pradyunsg/furo">Furo</a>
             <div class="last-updated">
-              Last updated on 2026-01-07</div>
+              Last updated on 2026-01-14</div>
           </div>
           <div class="right-details">
             <div class="icons">
@@ -1011,7 +1015,7 @@
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="../../_static/togglebutton.js?v=1ae7504c"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../../_static/design-tabs.js?v=f930bc37"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
