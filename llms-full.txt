@@ -155,13 +155,13 @@ For most cases, all-in-one is enough. Switch to core + extensions when you need 
 <dependency>
     <groupId>io.agentscope</groupId>
     <artifactId>agentscope</artifactId>
-    <version>1.0.7</version>
+    <version>1.0.8</version>
 </dependency>
 ```
 
 **Gradle:**
 ```gradle
-implementation 'io.agentscope:agentscope:1.0.7'
+implementation 'io.agentscope:agentscope:1.0.8'
 ```
 
 ### Included Dependencies
@@ -194,6 +194,7 @@ When using other models or features, add the corresponding dependencies:
 | **Redis Session**         | [Jedis](https://central.sonatype.com/artifact/redis.clients/jedis)                       | `redis.clients:jedis`            |
 | **PDF Processing**        | [Apache PDFBox](https://central.sonatype.com/artifact/org.apache.pdfbox/pdfbox)          | `org.apache.pdfbox:pdfbox`       |
 | **Word Processing**       | [Apache POI](https://central.sonatype.com/artifact/org.apache.poi/poi-ooxml)             | `org.apache.poi:poi-ooxml`       |
+| **Document Processing** | [Apache Tika Core](https://central.sonatype.com/artifact/org.apache.tika/tika-core) + [Apache Tika Parsers](https://central.sonatype.com/artifact/org.apache.tika/tika-parsers-standard-package) | `org.apache.tika:tika-core` + `org.apache.tika:tika-parsers-standard-package` |
 | **Nacos Registry**        | [Nacos Client](https://central.sonatype.com/artifact/com.alibaba.nacos/nacos-client)     | `com.alibaba.nacos:nacos-client` |
 
 #### Example: Using OpenAI Models
@@ -267,13 +268,13 @@ For fine-grained dependency control, use `agentscope-core` with extension module
 <dependency>
     <groupId>io.agentscope</groupId>
     <artifactId>agentscope-core</artifactId>
-    <version>1.0.7</version>
+    <version>1.0.8</version>
 </dependency>
 ```
 
 **Gradle:**
 ```gradle
-implementation 'io.agentscope:agentscope-core:1.0.7'
+implementation 'io.agentscope:agentscope-core:1.0.8'
 ```
 
 ### Extension Modules
@@ -333,7 +334,7 @@ Extension modules automatically include their required third-party dependencies.
 <dependency>
     <groupId>io.agentscope</groupId>
     <artifactId>agentscope-extensions-mem0</artifactId>
-    <version>1.0.7</version>
+    <version>1.0.8</version>
 </dependency>
 ```
 
@@ -345,7 +346,7 @@ Extension modules automatically include their required third-party dependencies.
 <dependency>
     <groupId>io.agentscope</groupId>
     <artifactId>agentscope-spring-boot-starter</artifactId>
-    <version>1.0.7</version>
+    <version>1.0.8</version>
 </dependency>
 ```
 
@@ -362,7 +363,7 @@ Additional starters:
 <dependency>
     <groupId>io.agentscope</groupId>
     <artifactId>agentscope-quarkus-extension</artifactId>
-    <version>1.0.7</version>
+    <version>1.0.8</version>
 </dependency>
 ```
 
@@ -372,7 +373,7 @@ Additional starters:
 <dependency>
     <groupId>io.agentscope</groupId>
     <artifactId>agentscope-micronaut-extension</artifactId>
-    <version>1.0.7</version>
+    <version>1.0.8</version>
 </dependency>
 ```
 
@@ -2061,6 +2062,11 @@ Adopts **three-stage on-demand loading** to optimize context: Initially loads on
 
 **Workflow:** User Query → AI Identifies Relevant Skill → Calls `load_skill_through_path` Tool to Load Content and Activate Bound Tools → On-Demand Resource Access → Task Completion
 
+**Unified Loading Tool**: `load_skill_through_path(skillId, resourcePath)` provides a single entry point for loading skill resources
+- `skillId` uses an enum field, ensuring selection only from registered Skills, guaranteeing accuracy
+- `resourcePath` is the resource path relative to the Skill root directory (e.g., `references/api-doc.md`)
+- Returns a list of all available resource paths when the path is incorrect, helping the LLM correct errors
+
 ### Adaptive Design
 
 We have further abstracted skills so that their discovery and content loading are no longer dependent on the file system. Instead, the LLM discovers and loads skill content and resources through tools. At the same time, to maintain compatibility with the existing skill ecosystem and resources, skills are still organized according to file system structure for their content and resources.
@@ -2212,6 +2218,8 @@ ReActAgent agent = ReActAgent.builder()
 
 Bind Tools to Skills for on-demand activation. Avoids context pollution from pre-registering all Tools, only passing relevant Tools to LLM when the Skill is actively used.
 
+**Lifecycle of Progressively Disclosed Tools**: Tool lifecycle remains consistent with Skill lifecycle. Once a Skill is activated, Tools remain available throughout the entire session, avoiding the call failures caused by Tool deactivation after each conversation round in the old mechanism.
+
 **Example Code**:
 
 ```java
@@ -2239,17 +2247,60 @@ ReActAgent agent = ReActAgent.builder()
     .build();
 ```
 
-### Feature 2: Skill Persistence Storage
+### Feature 2: Code Execution Capabilities
+
+Provides an isolated code execution folder for Skills, supporting Shell commands, file read/write operations, etc. Uses Builder pattern for flexible configuration of required tools.
+
+**Basic Usage**:
+
+```java
+SkillBox skillBox = new SkillBox(toolkit);
+
+// Enable all code execution tools (Shell, read file, write file)
+skillBox.codeExecution()
+    .withShell()
+    .withRead()
+    .withWrite()
+    .enable();
+```
+
+**Custom Configuration**:
+
+```java
+// Customize working directory and Shell command whitelist
+ShellCommandTool customShell = new ShellCommandTool(
+    null,  // baseDir will be automatically set to workDir
+    Set.of("python3", "node", "npm"),
+    command -> askUserApproval(command)  // Optional command approval callback
+);
+
+skillBox.codeExecution()
+    .workDir("/path/to/workdir")  // Specify working directory
+    .withShell(customShell)       // Use custom Shell tool
+    .withRead()                   // Enable file reading
+    .withWrite()                  // Enable file writing
+    .enable();
+
+// Or enable only file operations, without Shell
+skillBox.codeExecution()
+    .withRead()
+    .withWrite()
+    .enable();
+```
+
+**Core Features**:
+- **Unified Working Directory**: All tools share the same `workDir`, ensuring file isolation
+- **Selective Enabling**: Flexibly combine Shell, read file, and write file tools as needed
+- **Flexible Configuration**: Supports custom ShellCommandTool to meet customization requirements
+- **Automatic Management**: Automatically creates temporary directory when `workDir` is not specified, with automatic cleanup on program exit
+
+### Feature 3: Skill Persistence Storage
 
 **Why is this feature needed?**
 
 Skills need to remain available after application restart, or be shared across different environments. Persistence storage supports:
 
-- File system storage
-- Database storage (not yet implemented)
-- Git repository (not yet implemented)
-
-**Example Code**:
+#### File System Storage
 
 ```java
 AgentSkillRepository repo = new FileSystemSkillRepository(Path.of("./skills"));
@@ -2257,9 +2308,22 @@ repo.save(List.of(skill), false);
 AgentSkill loaded = repo.getSkill("data_analysis");
 ```
 
-This protection applies to all repository operations: `getSkill()`, `save()`, `delete()`, and `skillExists()`.
+#### MySQL Database Storage (not yet implemented)
 
-For detailed security guidelines, please refer to [Claude Agent Skills Security Considerations](https://platform.claude.com/docs/zh-CN/agents-and-tools/agent-skills/overview#安全考虑).
+#### Git Repository (not yet implemented)
+
+#### JAR Resource Adapter (Read-Only)
+
+Used to load pre-packaged Skills from JAR resources. Automatically compatible with standard JARs and Spring Boot Fat JARs.
+
+```java
+try (JarSkillRepositoryAdapter adapter = new JarSkillRepositoryAdapter("skills")) {
+    AgentSkill skill = adapter.getSkill("data-analysis");
+    List<AgentSkill> allSkills = adapter.getAllSkills();
+} catch //...
+```
+
+Resource structure: Place multiple skill subdirectories under `src/main/resources/skills/`, each containing a `SKILL.md`.
 
 ### Performance Optimization Recommendations
 
@@ -4811,16 +4875,39 @@ AG-UI is a frontend-backend communication protocol for exposing agents to web fr
 
 ### 2. Register Agent
 
+#### 2.1. Use customizer to register agent
 ```java
 @Configuration
 public class AgentConfiguration {
 
-    @Autowired
-    public void configureAgents(AguiAgentRegistry registry) {
-        registry.registerFactory("default", this::createAgent);
+    @Bean
+    public AguiAgentRegistryCustomizer aguiAgentRegistryCustomizer() {
+        return registry -> registry.registerFactory("default", this::createAgent);
     }
 
     private Agent createAgent() {
+        return ReActAgent.builder()
+                .name("Assistant")
+                .sysPrompt("You are a helpful assistant.")
+                .model(DashScopeChatModel.builder()
+                        .apiKey(System.getenv("DASHSCOPE_API_KEY"))
+                        .modelName("qwen3-max")
+                        .stream(true)
+                        .build())
+                .memory(new InMemoryMemory())
+                .build();
+    }
+}
+```
+
+#### 2.2. Annotation-process to register agent
+```java
+@Configuration
+public class AgentConfiguration {
+
+    @Bean
+    @AguiAgent("default")
+    public Agent agent() {
         return ReActAgent.builder()
                 .name("Assistant")
                 .sysPrompt("You are a helpful assistant.")

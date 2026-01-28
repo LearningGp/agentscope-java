@@ -4,7 +4,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <meta property="article:modified_time" content="2026-01-21T03:05:30+00:00" /><link rel="index" title="Index" href="../../genindex.html"><link rel="search" title="Search" href="../../search.html"><link rel="next" title="Key Concepts" href="key-concepts.html"><link rel="prev" title="AgentScope Java" href="../intro.html">
+    <meta property="article:modified_time" content="2026-01-26T03:15:29+00:00" /><link rel="index" title="Index" href="../../genindex.html"><link rel="search" title="Search" href="../../search.html"><link rel="next" title="Key Concepts" href="key-concepts.html"><link rel="prev" title="AgentScope Java" href="../intro.html">
         <link rel="canonical" href="https://java.agentscope.io/en/quickstart/installation.html">
         <link rel="prefetch" href="../../_static/logo.svg" as="image">
 
@@ -458,12 +458,12 @@
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;dependency&gt;</span>
 <span class="w">    </span><span class="nt">&lt;groupId&gt;</span>io.agentscope<span class="nt">&lt;/groupId&gt;</span>
 <span class="w">    </span><span class="nt">&lt;artifactId&gt;</span>agentscope<span class="nt">&lt;/artifactId&gt;</span>
-<span class="w">    </span><span class="nt">&lt;version&gt;</span>1.0.7<span class="nt">&lt;/version&gt;</span>
+<span class="w">    </span><span class="nt">&lt;version&gt;</span>1.0.8<span class="nt">&lt;/version&gt;</span>
 <span class="nt">&lt;/dependency&gt;</span>
 </pre></div>
 </div>
 <p><strong>Gradle:</strong></p>
-<div class="highlight-gradle notranslate"><div class="highlight"><pre><span></span>implementation &#39;io.agentscope:agentscope:1.0.7&#39;
+<div class="highlight-gradle notranslate"><div class="highlight"><pre><span></span>implementation &#39;io.agentscope:agentscope:1.0.8&#39;
 </pre></div>
 </div>
 <section id="included-dependencies">
@@ -551,7 +551,11 @@
 <td><p><a class="reference external" href="https://central.sonatype.com/artifact/org.apache.poi/poi-ooxml">Apache POI</a></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">org.apache.poi:poi-ooxml</span></code></p></td>
 </tr>
-<tr class="row-even"><td><p><strong>Nacos Registry</strong></p></td>
+<tr class="row-even"><td><p><strong>Document Processing</strong></p></td>
+<td><p><a class="reference external" href="https://central.sonatype.com/artifact/org.apache.tika/tika-core">Apache Tika Core</a> + <a class="reference external" href="https://central.sonatype.com/artifact/org.apache.tika/tika-parsers-standard-package">Apache Tika Parsers</a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">org.apache.tika:tika-core</span></code> + <code class="docutils literal notranslate"><span class="pre">org.apache.tika:tika-parsers-standard-package</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Nacos Registry</strong></p></td>
 <td><p><a class="reference external" href="https://central.sonatype.com/artifact/com.alibaba.nacos/nacos-client">Nacos Client</a></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">com.alibaba.nacos:nacos-client</span></code></p></td>
 </tr>
@@ -645,12 +649,12 @@
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;dependency&gt;</span>
 <span class="w">    </span><span class="nt">&lt;groupId&gt;</span>io.agentscope<span class="nt">&lt;/groupId&gt;</span>
 <span class="w">    </span><span class="nt">&lt;artifactId&gt;</span>agentscope-core<span class="nt">&lt;/artifactId&gt;</span>
-<span class="w">    </span><span class="nt">&lt;version&gt;</span>1.0.7<span class="nt">&lt;/version&gt;</span>
+<span class="w">    </span><span class="nt">&lt;version&gt;</span>1.0.8<span class="nt">&lt;/version&gt;</span>
 <span class="nt">&lt;/dependency&gt;</span>
 </pre></div>
 </div>
 <p><strong>Gradle:</strong></p>
-<div class="highlight-gradle notranslate"><div class="highlight"><pre><span></span>implementation &#39;io.agentscope:agentscope-core:1.0.7&#39;
+<div class="highlight-gradle notranslate"><div class="highlight"><pre><span></span>implementation &#39;io.agentscope:agentscope-core:1.0.8&#39;
 </pre></div>
 </div>
 <section id="extension-modules">
@@ -816,7 +820,7 @@
 <span class="nt">&lt;dependency&gt;</span>
 <span class="w">    </span><span class="nt">&lt;groupId&gt;</span>io.agentscope<span class="nt">&lt;/groupId&gt;</span>
 <span class="w">    </span><span class="nt">&lt;artifactId&gt;</span>agentscope-extensions-mem0<span class="nt">&lt;/artifactId&gt;</span>
-<span class="w">    </span><span class="nt">&lt;version&gt;</span>1.0.7<span class="nt">&lt;/version&gt;</span>
+<span class="w">    </span><span class="nt">&lt;version&gt;</span>1.0.8<span class="nt">&lt;/version&gt;</span>
 <span class="nt">&lt;/dependency&gt;</span>
 </pre></div>
 </div>
@@ -830,7 +834,7 @@
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;dependency&gt;</span>
 <span class="w">    </span><span class="nt">&lt;groupId&gt;</span>io.agentscope<span class="nt">&lt;/groupId&gt;</span>
 <span class="w">    </span><span class="nt">&lt;artifactId&gt;</span>agentscope-spring-boot-starter<span class="nt">&lt;/artifactId&gt;</span>
-<span class="w">    </span><span class="nt">&lt;version&gt;</span>1.0.7<span class="nt">&lt;/version&gt;</span>
+<span class="w">    </span><span class="nt">&lt;version&gt;</span>1.0.8<span class="nt">&lt;/version&gt;</span>
 <span class="nt">&lt;/dependency&gt;</span>
 </pre></div>
 </div>
@@ -861,7 +865,7 @@
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;dependency&gt;</span>
 <span class="w">    </span><span class="nt">&lt;groupId&gt;</span>io.agentscope<span class="nt">&lt;/groupId&gt;</span>
 <span class="w">    </span><span class="nt">&lt;artifactId&gt;</span>agentscope-quarkus-extension<span class="nt">&lt;/artifactId&gt;</span>
-<span class="w">    </span><span class="nt">&lt;version&gt;</span>1.0.7<span class="nt">&lt;/version&gt;</span>
+<span class="w">    </span><span class="nt">&lt;version&gt;</span>1.0.8<span class="nt">&lt;/version&gt;</span>
 <span class="nt">&lt;/dependency&gt;</span>
 </pre></div>
 </div>
@@ -871,7 +875,7 @@
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;dependency&gt;</span>
 <span class="w">    </span><span class="nt">&lt;groupId&gt;</span>io.agentscope<span class="nt">&lt;/groupId&gt;</span>
 <span class="w">    </span><span class="nt">&lt;artifactId&gt;</span>agentscope-micronaut-extension<span class="nt">&lt;/artifactId&gt;</span>
-<span class="w">    </span><span class="nt">&lt;version&gt;</span>1.0.7<span class="nt">&lt;/version&gt;</span>
+<span class="w">    </span><span class="nt">&lt;version&gt;</span>1.0.8<span class="nt">&lt;/version&gt;</span>
 <span class="nt">&lt;/dependency&gt;</span>
 </pre></div>
 </div>
@@ -932,7 +936,7 @@
             Made with 
             <a href="https://github.com/pradyunsg/furo">Furo</a>
             <div class="last-updated">
-              Last updated on 2026-01-21</div>
+              Last updated on 2026-01-26</div>
           </div>
           <div class="right-details">
             <div class="icons">
