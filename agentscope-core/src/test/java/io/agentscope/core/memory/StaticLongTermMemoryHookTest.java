@@ -141,6 +141,7 @@ class StaticLongTermMemoryHookTest {
                             List<Msg> messages = resultEvent.getInputMessages();
                             assertEquals(2, messages.size());
                             assertEquals(MsgRole.USER, messages.get(1).getRole());
+                            assertEquals("long_term_memory", messages.get(1).getName());
                             assertTrue(
                                     messages.get(1)
                                             .getTextContent()
@@ -151,6 +152,39 @@ class StaticLongTermMemoryHookTest {
                                             .contains("User prefers dark mode"));
                         })
                 .verifyComplete();
+    }
+
+    @Test
+    void testOnEventWithPreReasoningEventSkipsRetrievedKnowledgeMessages() {
+        List<Msg> inputMessages = new ArrayList<>();
+        inputMessages.add(
+                Msg.builder()
+                        .role(MsgRole.USER)
+                        .content(TextBlock.builder().text("Original user query").build())
+                        .build());
+        inputMessages.add(
+                Msg.builder()
+                        .role(MsgRole.USER)
+                        .name("retrieved_knowledge")
+                        .content(TextBlock.builder().text("Injected RAG content").build())
+                        .build());
+
+        PreCallEvent event = new PreCallEvent(mockAgent, inputMessages);
+
+        when(mockLongTermMemory.retrieve(any(Msg.class))).thenReturn(Mono.just("Relevant memory"));
+
+        StepVerifier.create(hook.onEvent(event))
+                .assertNext(
+                        resultEvent -> {
+                            List<Msg> messages = resultEvent.getInputMessages();
+                            assertEquals(3, messages.size());
+                            assertEquals("long_term_memory", messages.get(2).getName());
+                        })
+                .verifyComplete();
+
+        ArgumentCaptor<Msg> captor = ArgumentCaptor.forClass(Msg.class);
+        verify(mockLongTermMemory, times(1)).retrieve(captor.capture());
+        assertEquals("Original user query", captor.getValue().getTextContent());
     }
 
     @Test

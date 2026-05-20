@@ -270,7 +270,7 @@ public class StaticLongTermMemoryHook implements Hook {
     private int extractLastUserMessageIndex(List<Msg> messages) {
         for (int i = messages.size() - 1; i >= 0; i--) {
             Msg msg = messages.get(i);
-            if (msg.getRole() == MsgRole.USER) {
+            if (msg.getRole() == MsgRole.USER && !"retrieved_knowledge".equals(msg.getName())) {
                 return i;
             }
         }

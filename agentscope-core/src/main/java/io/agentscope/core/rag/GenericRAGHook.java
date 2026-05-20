@@ -179,7 +179,7 @@ public class GenericRAGHook implements Hook {
         // ASSISTANT or TOOL in ReAct loops)
         for (int i = messages.size() - 1; i >= 0; i--) {
             Msg msg = messages.get(i);
-            if (msg.getRole() == MsgRole.USER) {
+            if (msg.getRole() == MsgRole.USER && !"long_term_memory".equals(msg.getName())) {
                 return msg.getTextContent();
             }
         }
@@ -198,7 +198,7 @@ public class GenericRAGHook implements Hook {
         String knowledgeContent = buildKnowledgeContent(retrievedDocs);
 
         return Msg.builder()
-                .name("user")
+                .name("retrieved_knowledge")
                 .role(MsgRole.USER)
                 .content(TextBlock.builder().text(knowledgeContent).build())
                 .build();
