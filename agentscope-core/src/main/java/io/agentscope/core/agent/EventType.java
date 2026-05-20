@@ -62,7 +62,8 @@ public enum EventType {
      * Final result event - The agent's complete response.
      *
      * <p>This is the message returned by {@link Agent#call(io.agentscope.core.message.Msg)}.
-     * By default, this event is NOT included in the stream to avoid duplication since it's the return value.
+     * This event is included when streaming with {@link #ALL}, but can be excluded by
+     * specifying only the desired event types in {@link StreamOptions}.
      *
      * <p>Characteristics:
      * <ul>
@@ -86,7 +87,7 @@ public enum EventType {
     SUMMARY,
 
     /**
-     * Special value to stream all event types (except {@link #AGENT_RESULT}).
+     * Special value to stream all event types (including {@link #AGENT_RESULT}).
      *
      * <p>Use this in {@link StreamOptions} to receive all events without filtering.
      */
