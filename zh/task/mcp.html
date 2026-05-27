@@ -4,7 +4,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <meta property="article:modified_time" content="2026-04-13T01:37:58+00:00" /><link rel="index" title="Index" href="../../genindex.html"><link rel="search" title="Search" href="../../search.html"><link rel="next" title="Agent as Tool（子智能体工具）" href="agent-as-tool.html"><link rel="prev" title="工具" href="tool.html">
+    <meta property="article:modified_time" content="2026-05-18T13:47:03+00:00" /><link rel="index" title="Index" href="../../genindex.html"><link rel="search" title="Search" href="../../search.html"><link rel="next" title="Agent as Tool（子智能体工具）" href="agent-as-tool.html"><link rel="prev" title="工具" href="tool.html">
         <link rel="canonical" href="https://java.agentscope.io/zh/task/mcp.html">
         <link rel="prefetch" href="../../_static/logo.svg" as="image">
 
@@ -18,7 +18,8 @@
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?v=8dab3a3b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=acb90eab" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=0bcf34c1" />
+    <link rel="stylesheet" type="text/css" href="../../_static/homepage.css?v=8a098e07" />
     
     
 
@@ -53,6 +54,244 @@
 </style></head>
   <body>
     
+  
+
+  <!--
+  ~ Copyright 2024-2026 the original author or authors.
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+-->
+
+
+<div class="docs-site-header" role="banner">
+  <div class="docs-site-header__inner">
+    <div class="docs-site-header__start">
+      <a class="docs-site-header__brand" href="../../en/intro.html">
+        <img class="docs-site-header__logo" src="../../_static/logo.svg" alt="" width="44" height="44" />
+        <span class="docs-site-header__title"><span style='font-weight: 700; color: #2196f3;'>AgentScope</span> <br><span style='font-weight: 900; color: #ff5722;'>Java</span></span>
+      </a>
+      <div class="docs-site-header__nav-shell">
+        
+  
+  <nav
+    class="docs-top-tabs"
+    aria-label="Documentation sections"
+    data-current-page="zh/task/mcp"
+    data-current-lang="zh"
+  >
+    <div class="docs-top-tabs__list">
+      
+        
+        
+          
+          
+          
+            <a
+              class="docs-top-tabs__link"
+              href="../intro.html"
+              data-tab-id="home"
+              data-mirror-paths="true"
+              data-href-en="en/intro"
+              data-href-zh="zh/intro"
+              data-url-en="../../en/intro.html"
+              data-url-zh="../intro.html"
+              data-prefixes-en="en/intro"
+              data-prefixes-zh="zh/intro"
+              data-sections-en=""
+              data-sections-zh=""
+            >
+              首页
+            </a>
+          
+        
+      
+        
+        
+          
+          
+          
+            <a
+              class="docs-top-tabs__link"
+              href="../harness/overview.html"
+              data-tab-id="harness"
+              data-mirror-paths="false"
+              data-href-en="en/harness/overview"
+              data-href-zh="zh/harness/overview"
+              data-url-en="../../en/harness/overview.html"
+              data-url-zh="../harness/overview.html"
+              data-prefixes-en="en/harness/"
+              data-prefixes-zh="zh/harness/"
+              data-sections-en="Harness (English)"
+              data-sections-zh="Harness"
+            >
+              Harness
+            </a>
+          
+        
+      
+        
+        
+          
+          
+          
+            <a
+              class="docs-top-tabs__link"
+              href="../quickstart/installation.html"
+              data-tab-id="agent"
+              data-mirror-paths="true"
+              data-href-en="en/quickstart/installation"
+              data-href-zh="zh/quickstart/installation"
+              data-url-en="../../en/quickstart/installation.html"
+              data-url-zh="../quickstart/installation.html"
+              data-prefixes-en="en/quickstart/|en/task/|en/multi-agent/"
+              data-prefixes-zh="zh/quickstart/|zh/task/|zh/multi-agent/"
+              data-sections-en="Quick Start|Features|Multi Agent"
+              data-sections-zh="快速开始|功能指南|多智能体"
+            >
+              Agent
+            </a>
+          
+        
+      
+        
+        
+          
+          
+          
+            <a
+              class="docs-top-tabs__link"
+              href="../integration/overview.html"
+              data-tab-id="integration"
+              data-mirror-paths="true"
+              data-href-en="en/integration/overview"
+              data-href-zh="zh/integration/overview"
+              data-url-en="../../en/integration/overview.html"
+              data-url-zh="../integration/overview.html"
+              data-prefixes-en="en/integration/"
+              data-prefixes-zh="zh/integration/"
+              data-sections-en="Integration"
+              data-sections-zh="集成"
+            >
+              集成
+            </a>
+          
+        
+      
+        
+        
+          
+          
+          
+            <a
+              class="docs-top-tabs__link"
+              href="../blogs/index.html"
+              data-tab-id="blogs"
+              data-mirror-paths="true"
+              data-href-en="en/blogs/index"
+              data-href-zh="zh/blogs/index"
+              data-url-en="../../en/blogs/index.html"
+              data-url-zh="../blogs/index.html"
+              data-prefixes-en="en/blogs/"
+              data-prefixes-zh="zh/blogs/"
+              data-sections-en="Blogs"
+              data-sections-zh="博客"
+            >
+              博客
+            </a>
+          
+        
+      
+        
+        
+          
+          
+          
+            <a
+              class="docs-top-tabs__link"
+              href="../community/overview.html"
+              data-tab-id="community"
+              data-mirror-paths="true"
+              data-href-en="en/community/overview"
+              data-href-zh="zh/community/overview"
+              data-url-en="../../en/community/overview.html"
+              data-url-zh="../community/overview.html"
+              data-prefixes-en="en/community/"
+              data-prefixes-zh="zh/community/"
+              data-sections-en="Community"
+              data-sections-zh="社区"
+            >
+              社区
+            </a>
+          
+        
+      
+    </div>
+  </nav>
+
+      </div>
+    </div>
+    <div class="docs-site-header__actions" aria-label="Site actions">
+      <form class="docs-header-search" method="get" action="../../search.html" role="search">
+        <input class="docs-header-search__input" type="search" name="q" placeholder="Search" aria-label="Search" autocomplete="off" />
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+        <button class="docs-header-search__submit" type="submit" aria-label="Search">
+          <svg class="docs-header-search__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="11" cy="11" r="8" />
+            <line x1="21" y1="21" x2="16.65" y2="16.65" />
+          </svg>
+        </button>
+      </form>
+      <div id="searchbox" class="docs-header-searchbox"></div>
+      <div class="docs-site-header__theme theme-toggle-container">
+        <button class="theme-toggle" type="button" aria-label="Toggle Light / Dark / Auto color theme">
+          <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+          <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <!--
+  ~ Copyright 2024-2026 the original author or authors.
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+-->
+
+<div class="language-switch">
+    <div class="language-selector">
+        <button class="language-button" type="button" onclick="return toggleLanguageMenu()" aria-haspopup="true" aria-expanded="false">
+            <span id="current-lang">English</span>
+        </button>
+        <div class="language-menu" id="language-menu">
+            <a href="#" class="language-option" onclick="return switchLanguage('en')">English</a>
+            <a href="#" class="language-option" onclick="return switchLanguage('zh')">中文</a>
+        </div>
+    </div>
+</div>
+    </div>
+  </div>
+</div>
+  
     <script>
       document.body.dataset.theme = localStorage.getItem("theme") || "auto";
     </script>
@@ -196,128 +435,7 @@
   <aside class="sidebar-drawer">
     <div class="sidebar-container">
       
-      <div class="sidebar-sticky"><div class="sidebar-scroll"><a class="sidebar-brand" href="../../en/intro.html">
-  <div class="sidebar-logo-container">
-    <img class="sidebar-logo" src="../../_static/logo.svg" alt="Logo"/>
-  </div>
-  
-  <span class="sidebar-brand-text"><span style='font-weight: 700; color: #2196f3;'>AgentScope</span> <br><span style='font-weight: 900; color: #ff5722;'>Java</span></span>
-  
-</a><!--
-  ~ Copyright 2024-2026 the original author or authors.
-  ~
-  ~ Licensed under the Apache License, Version 2.0 (the "License");
-  ~ you may not use this file except in compliance with the License.
-  ~ You may obtain a copy of the License at
-  ~
-  ~     http://www.apache.org/licenses/LICENSE-2.0
-  ~
-  ~ Unless required by applicable law or agreed to in writing, software
-  ~ distributed under the License is distributed on an "AS IS" BASIS,
-  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-  ~ See the License for the specific language governing permissions and
-  ~ limitations under the License.
--->
-
-<div class="language-switch">
-    <div class="language-selector">
-        <button class="language-button" onclick="toggleLanguageMenu()">
-            <span id="current-lang">English</span>
-            <span class="dropdown-arrow"></span>
-        </button>
-        <div class="language-menu" id="language-menu">
-            <a href="#" class="language-option" onclick="switchLanguage('en')">English</a>
-            <a href="#" class="language-option" onclick="switchLanguage('zh')">中文</a>
-        </div>
-    </div>
-</div>
-
-<script>
-    function toggleLanguageMenu() {
-        const menu = document.getElementById('language-menu');
-        menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
-    }
-
-    function switchLanguage(lang, skipRedirect = false) {
-        // Save language preference
-        localStorage.setItem('preferred-language', lang);
-
-        // Update displayed language const
-        currentLang = document.getElementById('current-lang');
-        currentLang.textContent = lang === 'zh' ? '中文' : 'English';
-        document.body.setAttribute('data-current-lang', lang);
-        if (!skipRedirect) {
-            const currentPath = window.location.pathname;
-            let newPath = null;
-
-            if (lang === 'zh' && currentPath.includes('/en/')) {
-                newPath = currentPath.replace('/en/', '/zh/');
-            } else if (lang === 'en' && currentPath.includes('/zh/')) {
-                newPath = currentPath.replace('/zh/', '/en/');
-            }
-            if (newPath && newPath !== currentPath) {
-                window.location.href = newPath + window.location.search + window.location.hash;
-                return;
-            }
-        }
-
-        // Apply language filtering
-        filterContentByLanguage(lang);
-
-        // Close dropdown menu
-        document.getElementById('language-menu').style.display = 'none';
-    }
-
-    function filterContentByLanguage(lang) {
-        const captions = document.querySelectorAll('.caption');
-        const toctreeItems = document.querySelectorAll('.toctree-l1');
-
-        // Define which captions should be displayed based on the selected language
-        const languageMapping = {
-            'en': ['Quick Start', 'Features', 'Multi Agent'],
-            'zh': ['快速开始', '功能指南', '多智能体']
-        };
-
-        const visibleCaptions = languageMapping[lang] || [];
-
-        // Filter captions based on the selected language
-        captions.forEach(caption => {
-            const text = caption.textContent.trim();
-            caption.style.display = visibleCaptions.includes(text) ? 'block' : 'none';
-        });
-
-        // Filter toctree items based on the selected language
-        toctreeItems.forEach(item => {
-            const link = item.querySelector('a');
-            if (link) {
-                const href = link.getAttribute('href') || '';
-                if (lang === 'zh') {
-                    const hasZh = href.includes('/zh/');
-                    const hasEn = href.includes('/en/');
-                    const isRelative = !href.startsWith('http') && !href.startsWith('/') && !hasEn;
-
-                    item.style.display = (hasZh || isRelative) ? 'block' : 'none';
-                } else {
-                    const hasZh = href.includes('/zh/');
-                    item.style.display = hasZh ? 'none' : 'block';
-                }
-            } else {
-                item.style.display = 'block';
-            }
-        });
-    }
-
-    document.addEventListener('click', function (e) {
-        if (!e.target.closest('.language-selector')) {
-            document.getElementById('language-menu').style.display = 'none';
-        }
-    });
-</script><form class="sidebar-search-container" method="get" action="../../search.html" role="search">
-  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
-  <input type="hidden" name="check_keywords" value="yes">
-  <input type="hidden" name="area" value="default">
-</form>
-<div id="searchbox"></div><div class="sidebar-tree">
+      <div class="sidebar-sticky"><div class="sidebar-scroll"><div class="sidebar-tree">
   <p class="caption" role="heading"><span class="caption-text">Quick Start</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../en/quickstart/installation.html">Installation</a></li>
@@ -332,6 +450,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../en/task/agent-as-tool.html">Agent as Tool</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../en/task/agent-skill.html">Agent Skill</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../en/task/rag.html">RAG</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../en/task/streaming.html">Streaming</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../en/task/hook.html">Hook System</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../en/task/hitl.html">Human-in-the-Loop</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../en/task/memory.html">Memory Management</a></li>
@@ -359,9 +478,37 @@
 <li class="toctree-l1"><a class="reference internal" href="../../en/multi-agent/handoffs.html">Handoffs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../en/multi-agent/multiagent-debate.html">Multi-Agent Debate</a></li>
 </ul>
+<p class="caption" role="heading"><span class="caption-text">Harness (English)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../en/harness/overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../en/harness/architecture.html">Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../en/harness/workspace.html">Workspace</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../en/harness/filesystem.html">Filesystem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../en/harness/session.html">Session</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../en/harness/memory.html">Memory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../en/harness/tool.html">Tooling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../en/harness/subagent.html">Subagent</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../en/harness/streaming.html">Subagent Streaming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../en/harness/quickstart/index.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../en/harness/sandbox/index.html">Sandbox</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../en/harness/example/index.html">Examples</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Integration</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../en/integration/overview.html">Overview</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Blogs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../en/blogs/index.html">Article index</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../en/blogs/agentscope-v1-harness.html">AgentScope Java 1.1 · Harness</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Community</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../en/community/overview.html">Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../en/community/contributors.html">Contributors</a></li>
+</ul>
 <p class="caption" role="heading"><span class="caption-text">快速开始</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../intro.html">简介</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../quickstart/installation.html">安装</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../quickstart/key-concepts.html">核心概念</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../quickstart/agent.html">智能体</a></li>
@@ -374,6 +521,7 @@
 <li class="toctree-l1"><a class="reference internal" href="agent-as-tool.html">Agent as Tool</a></li>
 <li class="toctree-l1"><a class="reference internal" href="agent-skill.html">Agent Skill</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rag.html">RAG</a></li>
+<li class="toctree-l1"><a class="reference internal" href="streaming.html">流式输出</a></li>
 <li class="toctree-l1"><a class="reference internal" href="hook.html">钩子系统</a></li>
 <li class="toctree-l1"><a class="reference internal" href="hitl.html">Human-in-the-Loop</a></li>
 <li class="toctree-l1"><a class="reference internal" href="memory.html">记忆管理</a></li>
@@ -400,6 +548,37 @@
 <li class="toctree-l1"><a class="reference internal" href="../multi-agent/supervisor.html">Supervisor</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../multi-agent/handoffs.html">Handoffs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../multi-agent/multiagent-debate.html">多智能体辩论</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">集成</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../integration/overview.html">概览</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">博客</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../blogs/index.html">全部文章</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../blogs/agentscope-v1-harness.html">AgentScope Java 1.1 · Harness</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">社区</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../community/overview.html">社区</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../community/contributors.html">核心贡献者</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Harness</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../harness/overview.html">概览</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../harness/architecture.html">架构</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../harness/workspace.html">工作区</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../harness/filesystem.html">文件系统</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../harness/session.html">会话</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../harness/memory.html">记忆</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../harness/tool.html">工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../harness/skill.html">技能</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../harness/subagent.html">子 Agent</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../harness/streaming.html">子 Agent 流式</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../harness/quickstart/index.html">快速开始</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../harness/sandbox/index.html">沙箱</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../harness/sandbox/agentrun.html">AgentRun 后端</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../harness/example/index.html">示例</a></li>
 </ul>
 
 </div>
@@ -738,15 +917,38 @@
 <section id="id15">
 <h2>管理 MCP 客户端<a class="headerlink" href="#id15" title="Link to this heading">¶</a></h2>
 <section id="id16">
-<h3>列出 MCP 服务器的工具<a class="headerlink" href="#id16" title="Link to this heading">¶</a></h3>
+<h3>协议版本配置<a class="headerlink" href="#id16" title="Link to this heading">¶</a></h3>
+<p>默认情况下，MCP 客户端仅支持协议版本 <code class="docutils literal notranslate"><span class="pre">2024-11-05</span></code>。如果 MCP 服务器在初始化时返回不同的协议版本（例如 <code class="docutils literal notranslate"><span class="pre">2025-03-26</span></code>），连接将失败并报错 “Unsupported protocol version”。</p>
+<p>使用 <code class="docutils literal notranslate"><span class="pre">protocolVersions()</span></code> 声明支持的协议版本：</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="c1">// 支持多个协议版本</span>
+<span class="n">McpClientWrapper</span><span class="w"> </span><span class="n">client</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">McpClientBuilder</span><span class="p">.</span><span class="na">create</span><span class="p">(</span><span class="s">&quot;mcp&quot;</span><span class="p">)</span>
+<span class="w">        </span><span class="p">.</span><span class="na">stdioTransport</span><span class="p">(</span><span class="s">&quot;python&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;server.py&quot;</span><span class="p">)</span>
+<span class="w">        </span><span class="p">.</span><span class="na">protocolVersions</span><span class="p">(</span><span class="s">&quot;2024-11-05&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;2025-03-26&quot;</span><span class="p">)</span>
+<span class="w">        </span><span class="p">.</span><span class="na">buildAsync</span><span class="p">()</span>
+<span class="w">        </span><span class="p">.</span><span class="na">block</span><span class="p">();</span>
+
+<span class="c1">// 适用于任何传输类型</span>
+<span class="n">McpClientWrapper</span><span class="w"> </span><span class="n">sseClient</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">McpClientBuilder</span><span class="p">.</span><span class="na">create</span><span class="p">(</span><span class="s">&quot;mcp&quot;</span><span class="p">)</span>
+<span class="w">        </span><span class="p">.</span><span class="na">sseTransport</span><span class="p">(</span><span class="s">&quot;https://mcp.example.com/sse&quot;</span><span class="p">)</span>
+<span class="w">        </span><span class="p">.</span><span class="na">protocolVersions</span><span class="p">(</span><span class="s">&quot;2024-11-05&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;2025-03-26&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;2025-06-18&quot;</span><span class="p">)</span>
+<span class="w">        </span><span class="p">.</span><span class="na">buildAsync</span><span class="p">()</span>
+<span class="w">        </span><span class="p">.</span><span class="na">block</span><span class="p">();</span>
+</pre></div>
+</div>
+<blockquote>
+<div><p><strong>注意</strong>：当连接使用较新协议版本的第三方 MCP 服务器时，此功能非常有用。MCP 规范将协议版本协商定义为客户端-服务器握手过程，服务器可能返回与客户端请求不同的版本。</p>
+</div></blockquote>
+</section>
+<section id="id17">
+<h3>列出 MCP 服务器的工具<a class="headerlink" href="#id17" title="Link to this heading">¶</a></h3>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="c1">// 注册后，工具会出现在工具包中</span>
 <span class="n">Set</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">toolNames</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">toolkit</span><span class="p">.</span><span class="na">getToolNames</span><span class="p">();</span>
 <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;可用工具: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">toolNames</span><span class="p">);</span>
 </pre></div>
 </div>
 </section>
-<section id="id17">
-<h3>移除 MCP 客户端<a class="headerlink" href="#id17" title="Link to this heading">¶</a></h3>
+<section id="id18">
+<h3>移除 MCP 客户端<a class="headerlink" href="#id18" title="Link to this heading">¶</a></h3>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="c1">// 移除 MCP 客户端及其所有工具</span>
 <span class="n">toolkit</span><span class="p">.</span><span class="na">removeMcpClient</span><span class="p">(</span><span class="s">&quot;filesystem-mcp&quot;</span><span class="p">).</span><span class="na">block</span><span class="p">();</span>
 </pre></div>
@@ -756,8 +958,8 @@
 <section id="higress-ai-gateway">
 <h2>Higress AI Gateway 集成<a class="headerlink" href="#higress-ai-gateway" title="Link to this heading">¶</a></h2>
 <p>AgentScope 提供了 Higress AI Gateway 扩展，支持通过 Higress 网关统一访问 MCP 工具，并利用语义检索能力自动选择最合适的工具。</p>
-<section id="id18">
-<h3>添加依赖<a class="headerlink" href="#id18" title="Link to this heading">¶</a></h3>
+<section id="id19">
+<h3>添加依赖<a class="headerlink" href="#id19" title="Link to this heading">¶</a></h3>
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;dependency&gt;</span>
 <span class="w">    </span><span class="nt">&lt;groupId&gt;</span>io.agentscope<span class="nt">&lt;/groupId&gt;</span>
 <span class="w">    </span><span class="nt">&lt;artifactId&gt;</span>agentscope-extensions-higress<span class="nt">&lt;/artifactId&gt;</span>
@@ -766,8 +968,8 @@
 </pre></div>
 </div>
 </section>
-<section id="id19">
-<h3>基本使用<a class="headerlink" href="#id19" title="Link to this heading">¶</a></h3>
+<section id="id20">
+<h3>基本使用<a class="headerlink" href="#id20" title="Link to this heading">¶</a></h3>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">io.agentscope.extensions.higress.HigressMcpClientBuilder</span><span class="p">;</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">io.agentscope.extensions.higress.HigressMcpClientWrapper</span><span class="p">;</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">io.agentscope.extensions.higress.HigressToolkit</span><span class="p">;</span>
@@ -785,8 +987,8 @@
 </pre></div>
 </div>
 </section>
-<section id="id20">
-<h3>启用语义工具搜索<a class="headerlink" href="#id20" title="Link to this heading">¶</a></h3>
+<section id="id21">
+<h3>启用语义工具搜索<a class="headerlink" href="#id21" title="Link to this heading">¶</a></h3>
 <p>使用 <code class="docutils literal notranslate"><span class="pre">toolSearch()</span></code> 方法启用语义搜索，Higress 会自动选择与查询最相关的工具：</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="c1">// 启用工具搜索，返回最相关的 5 个工具</span>
 <span class="n">HigressMcpClientWrapper</span><span class="w"> </span><span class="n">higressClient</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">HigressMcpClientBuilder</span>
@@ -802,18 +1004,18 @@
 <h3>Higress 示例<a class="headerlink" href="#higress" title="Link to this heading">¶</a></h3>
 <p>查看完整的 Higress 示例：</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">agentscope-examples/quickstart/src/main/java/io/agentscope/examples/quickstart/HigressToolExample.java</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">agentscope-examples/documentation/quickstart/src/main/java/io/agentscope/examples/quickstart/HigressToolExample.java</span></code></p></li>
 </ul>
 </section>
 </section>
-<section id="id21">
-<h2>完整示例<a class="headerlink" href="#id21" title="Link to this heading">¶</a></h2>
+<section id="id22">
+<h2>完整示例<a class="headerlink" href="#id22" title="Link to this heading">¶</a></h2>
 <p>查看完整的 MCP 示例：</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">agentscope-examples/quickstart/src/main/java/io/agentscope/examples/quickstart/McpToolExample.java</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">agentscope-examples/documentation/quickstart/src/main/java/io/agentscope/examples/quickstart/McpToolExample.java</span></code></p></li>
 </ul>
 <p>运行示例：</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>agentscope-examples/quickstart
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>agentscope-examples/documentation/quickstart
 mvn<span class="w"> </span>exec:java<span class="w"> </span>-Dexec.mainClass<span class="o">=</span><span class="s2">&quot;io.agentscope.examples.quickstart.McpToolExample&quot;</span>
 </pre></div>
 </div>
@@ -873,7 +1075,7 @@ mvn<span class="w"> </span>exec:java<span class="w"> </span>-Dexec.mainClass<spa
             Made with 
             <a href="https://github.com/pradyunsg/furo">Furo</a>
             <div class="last-updated">
-              Last updated on 2026-04-13</div>
+              Last updated on 2026-05-18</div>
           </div>
           <div class="right-details">
             <div class="icons">
@@ -939,18 +1141,19 @@ mvn<span class="w"> </span>exec:java<span class="w"> </span>-Dexec.mainClass<spa
 </ul>
 </li>
 <li><a class="reference internal" href="#id15">管理 MCP 客户端</a><ul>
-<li><a class="reference internal" href="#id16">列出 MCP 服务器的工具</a></li>
-<li><a class="reference internal" href="#id17">移除 MCP 客户端</a></li>
+<li><a class="reference internal" href="#id16">协议版本配置</a></li>
+<li><a class="reference internal" href="#id17">列出 MCP 服务器的工具</a></li>
+<li><a class="reference internal" href="#id18">移除 MCP 客户端</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#higress-ai-gateway">Higress AI Gateway 集成</a><ul>
-<li><a class="reference internal" href="#id18">添加依赖</a></li>
-<li><a class="reference internal" href="#id19">基本使用</a></li>
-<li><a class="reference internal" href="#id20">启用语义工具搜索</a></li>
+<li><a class="reference internal" href="#id19">添加依赖</a></li>
+<li><a class="reference internal" href="#id20">基本使用</a></li>
+<li><a class="reference internal" href="#id21">启用语义工具搜索</a></li>
 <li><a class="reference internal" href="#higress">Higress 示例</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#id21">完整示例</a></li>
+<li><a class="reference internal" href="#id22">完整示例</a></li>
 </ul>
 </li>
 </ul>
@@ -962,7 +1165,8 @@ mvn<span class="w"> </span>exec:java<span class="w"> </span>-Dexec.mainClass<spa
       
     </aside>
   </div>
-</div><script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+</div>
+<script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="../../_static/doctools.js?v=9a2dae69"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/scripts/furo.js?v=46bd48cc"></script>
@@ -979,6 +1183,9 @@ mvn<span class="w"> </span>exec:java<span class="w"> </span>-Dexec.mainClass<spa
     <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script src="../../_static/tabs.js?v=7ce5a780"></script>
     <script src="../../_static/language.js?v=26e4e812"></script>
+    <script src="../../_static/notice-bar.js?v=6a544133"></script>
+    <script src="../../_static/mermaid-zoom.js?v=b287901b"></script>
     </body>
 </html>
